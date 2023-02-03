@@ -91,7 +91,7 @@
         "type": "address"
       }
     ],
-    "name": "operatorAuth",
+    "name": "operatorAuthorized",
     "outputs": [
       {
         "internalType": "address",
@@ -110,7 +110,7 @@
         "type": "address"
       }
     ],
-    "name": "operatorReg",
+    "name": "operatorRegistered",
     "outputs": [
       {
         "internalType": "bool",

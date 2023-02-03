@@ -1,15 +1,15 @@
 const { ethers, upgrades } = require("hardhat");
+// TODO Check this address is right before deploying.
+const PROXY_ADDRESS = process.env.PROXY_ADDRESS;
 
 async function main() {
-  // TODO Check this address is right before deploying.
-  const deployedProxyAddress = "0x5d3ec73b723ac7effbD616a6a53281ED6302f526";
 
   const GossipRegistryV2 = await ethers.getContractFactory(
     "GossipRegistryV2"
   );
   console.log("Upgrading GossipRegistry...");
 
-  await upgrades.upgradeProxy(deployedProxyAddress, GossipRegistryV2);
+  await upgrades.upgradeProxy(PROXY_ADDRESS, GossipRegistryV2);
   console.log("GossipRegistry upgraded");
 }
 

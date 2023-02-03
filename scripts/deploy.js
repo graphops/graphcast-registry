@@ -16,10 +16,13 @@ async function main() {
   const GossipRegistry = await ethers.getContractFactory("GossipRegistry");
 
   console.log('Deploying GossipRegistry proxy...');
-  const registry = await upgrades.deployProxy(GossipRegistry, [deployer.address], { initializer: 'initialize' });
+  const registry = await upgrades.deployProxy(GossipRegistry, [], { initializer: 'initialize' });
 
   console.log("Registry address:", registry.address);
   await registry.deployed();
+
+  console.log("Implementation address: ", await upgrades.erc1967.getImplementationAddress(registry.address))
+  console.log("Admin address", await upgrades.erc1967.getAdminAddress(registry.address))
 }
 
 // We recommend this pattern to be able to use async/await everywhere
