@@ -8,10 +8,10 @@ async function main() {
 
   console.log("Account balance:", (await deployer.getBalance()).toString());
 
-  const GossipRegistry = await ethers.getContractFactory("GossipRegistry");
+  const GraphcastRegistry = await ethers.getContractFactory("GraphcastRegistry");
 
-  console.log('Deploying GossipRegistry proxy...');
-  const registry = await upgrades.deployProxy(GossipRegistry, [], { initializer: 'initialize', contract: "GraphcastRegistryProxy" });
+  console.log('Deploying GraphcastRegistry proxy...');
+  const registry = await upgrades.deployProxy(GraphcastRegistry, [], { initializer: 'initialize', contract: "GraphcastRegistryProxy" });
 
   console.log("Registry contract address:", registry.address);
   await registry.deployed();
@@ -23,7 +23,7 @@ async function main() {
   await registry.deployTransaction.wait(WAIT_BLOCK_CONFIRMATIONS);
 
   console.log(`Contract deployed to ${registry.address} on ${network.name}`);
-  const gr = GossipRegistry.attach(registry.address);
+  const gr = GraphcastRegistry.attach(registry.address);
   const owner = await gr.owner();
   console.log(`Owner address (should be the deployer): ${owner}`)
 

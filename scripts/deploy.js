@@ -13,10 +13,10 @@ async function main() {
 
   console.log("Account balance:", (await deployer.getBalance()).toString());
 
-  const GossipRegistry = await ethers.getContractFactory("GossipRegistry");
+  const GraphcastRegistry = await ethers.getContractFactory("GraphcastRegistry");
 
-  console.log('Deploying GossipRegistry proxy...');
-  const registry = await upgrades.deployProxy(GossipRegistry, [], { initializer: 'initialize' });
+  console.log('Deploying GraphcastRegistry proxy...');
+  const registry = await upgrades.deployProxy(GraphcastRegistry, [], { initializer: 'initialize' });
 
   console.log("Registry address:", registry.address);
   await registry.deployed();
