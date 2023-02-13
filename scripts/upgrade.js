@@ -4,13 +4,13 @@ const PROXY_ADDRESS = process.env.PROXY_ADDRESS;
 
 async function main() {
 
-  const GossipRegistryV2 = await ethers.getContractFactory(
-    "GossipRegistryV2"
+  const GraphcastRegistryV2 = await ethers.getContractFactory(
+    "GraphcastRegistryV2"
   );
-  console.log("Upgrading GossipRegistry...");
+  console.log("Upgrading GraphcastRegistry...");
 
-  await upgrades.upgradeProxy(PROXY_ADDRESS, GossipRegistryV2);
-  console.log("GossipRegistry upgraded");
+  await upgrades.upgradeProxy(PROXY_ADDRESS, GraphcastRegistryV2);
+  console.log("GraphcastRegistry upgraded");
 }
 
 main().catch((error) => {
