@@ -10,15 +10,15 @@ module.exports = {
     hardhat: {
     },
     goerli: {
-      url: process.env.INFURA,
+      url: process.env.GOERLI_ETH_PROVIDER,
       accounts: [process.env.GOERLI_PRIVATE_KEY]
     },
     mainnet: {
-      url: process.env.API_KEY,
+      url: process.env.MAINNET_ETH_PROVIDER,
       accounts: [process.env.MAINNET_PRIVATE_KEY]
     },
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN,
+    apiKey: process.env.ETHERSCAN_API_KEY,
   },
 };
