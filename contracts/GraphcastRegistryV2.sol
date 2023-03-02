@@ -16,6 +16,7 @@ error DeprecatedFunction();
 
 contract Staking {
     function isOperator(address _operator, address _indexer) external view returns (bool) {}
+    function hasStake(address _indexer) external view returns (bool) {}
 }
 
 /// @title A Registry for Graphcast IDs
@@ -34,10 +35,10 @@ contract GraphcastRegistryV2 is GraphcastRegistry{
     }
 
     /**
-     * @dev Check if the caller is authorized (indexer or operator)
+     * @dev Check if the caller is authorized (either a staked indexer or operator of an indexer)
      */
     function _isAuth(address _indexer) internal view returns (bool) {
-        return msg.sender == _indexer || staking().isOperator(msg.sender, _indexer) == true;
+        return (msg.sender == _indexer && staking().hasStake(_indexer)) || staking().isOperator(msg.sender, _indexer) == true;
     }
 
     /**
@@ -66,7 +67,7 @@ contract GraphcastRegistryV2 is GraphcastRegistry{
      * @param _indexer Indexer address to authorize Graphcast ID for
      * @param _graphcastID Address to authorize as the Graphcast ID
      */
-    function setGraphcastIDFor(address _indexer, address _graphcastID) external {
+    function setGraphcastIDFor(address _indexer, address _graphcastID) external virtual {
         if (!_isAuth(_indexer))
             revert UnauthorizedCaller(_indexer);
         if (_graphcastID == msg.sender)
