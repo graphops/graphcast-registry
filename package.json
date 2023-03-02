@@ -4,6 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@commitlint/cli": "^17.4.3",
+    "@commitlint/config-conventional": "^17.4.3",
     "@openzeppelin/contracts": "^4.8.1",
     "@openzeppelin/contracts-upgradeable": "^4.8.1",
     "dotenv": "^16.0.3",
@@ -25,6 +27,7 @@
     "hardhat-gas-reporter": "^1.0.8",
     "husky": "^8.0.3",
     "solidity-coverage": "^0.7.21",
+    "standard-version": "^9.5.0",
     "typechain": "^8.1.0"
   }
 }

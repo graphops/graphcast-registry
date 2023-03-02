@@ -1,5 +1,15 @@
 [
     {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "DeprecatedFunction",
+      "type": "error"
+    },
+    {
       "inputs": [
         {
           "internalType": "address",
@@ -19,6 +29,17 @@
         }
       ],
       "name": "OccupiedGraphcastID",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_indexer",
+          "type": "address"
+        }
+      ],
+      "name": "UnauthorizedCaller",
       "type": "error"
     },
     {
@@ -70,6 +91,19 @@
         }
       ],
       "name": "SetGraphcastID",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "staking",
+          "type": "address"
+        }
+      ],
+      "name": "SetStaking",
       "type": "event"
     },
     {
@@ -148,6 +182,50 @@
       "name": "setGraphcastID",
       "outputs": [],
       "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_indexer",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_graphcastID",
+          "type": "address"
+        }
+      ],
+      "name": "setGraphcastIDFor",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_addr",
+          "type": "address"
+        }
+      ],
+      "name": "setStaking",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "staking_addr",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {

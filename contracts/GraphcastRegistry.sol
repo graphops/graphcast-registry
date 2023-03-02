@@ -35,7 +35,7 @@ contract GraphcastRegistry is Initializable, OwnableUpgradeable {
      * @dev Authorize an address to be a Graphcast ID. (unauthorize by setting address 0)
      * @param _graphcastID Address to authorize as the Graphcast ID
      */
-    function setGraphcastID(address _graphcastID) external {
+    function setGraphcastID(address _graphcastID) external virtual {
         if (_graphcastID == msg.sender)
             revert InvalidGraphcastID(_graphcastID);
         if (_graphcastID != address(0) && graphcastIDRegistered[_graphcastID])
