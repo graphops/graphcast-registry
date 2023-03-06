@@ -5,6 +5,7 @@
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
 const { ethers, upgrades } = require("hardhat");
+const GNOSIS_SAFE = process.env.GOERLI_GNOSIS_SAFE;
 
 async function main() {
   const [deployer] = await ethers.getSigners();
@@ -16,7 +17,7 @@ async function main() {
   const GraphcastRegistry = await ethers.getContractFactory("GraphcastRegistry");
 
   console.log('Deploying GraphcastRegistry proxy...');
-  const registry = await upgrades.deployProxy(GraphcastRegistry, [], { initializer: 'initialize' });
+  const registry = await upgrades.deployProxy(GraphcastRegistry, [], { initializer: 'initialize', proxyAdmin: GNOSIS_SAFE }, "GraphcastProxy");
 
   console.log("Registry address:", registry.address);
   await registry.deployed();

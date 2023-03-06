@@ -217,7 +217,7 @@
   },
   {
     "inputs": [],
-    "name": "staking_addr",
+    "name": "stakingAddr",
     "outputs": [
       {
         "internalType": "address",

@@ -30,17 +30,19 @@ With Hardhat CLI:
 
 ## Configuring
 
-| Name                         | Description                                                               |
-| ---------------------------- | ------------------------------------------------------------------------- |
-| `GOERLI_PRIVATE_KEY`         | Goerli address private key                                                |
-| `GOERLI_ETH_PROVIDER`        | Goerli block provider API endpoint (ex. Infura, Alchemy, ...)             |
-| `GOERLI_GNOSIS_SAFE`         | Goerli Gnosis Safe address for contract owner                             |
-| `GOERLI_PROXY_ADDRESS`       | Goerli Contract proxy address for upgrading the contract                  |
-| `MAINNET_PRIVATE_KEY`        | Mainnet address private key                                               |
-| `MAINNET_ETH_PROVIDER`       | Mainnet block provider API endpoint (ex. Infura, Alchemy, ...)            |
-| `MAINNET_GNOSIS_SAFE`        | Mainnet Gnosis Safe address for contract owner                            |
-| `MAINNET_PROXY_ADDRESS`      | Mainnet Contract proxy address for upgrading the contract                 |
-| `ETHERSCAN_API_KEY`          | Etherscan account API key used for contract verification                  |
+| Name                           | Description                                                               |
+| ------------------------------ | ------------------------------------------------------------------------- |
+| `GOERLI_PRIVATE_KEY`           | Goerli address private key                                                |
+| `GOERLI_ETH_PROVIDER`          | Goerli block provider API endpoint (ex. Infura, Alchemy, ...)             |
+| `GOERLI_GNOSIS_SAFE`           | Goerli Gnosis Safe address for contract owner                             |
+| `GOERLI_PROXY_ADDRESS`         | Goerli Contract proxy address for upgrading the contract                  |
+| `MAINNET_PRIVATE_KEY`          | Mainnet address private key                                               |
+| `MAINNET_ETH_PROVIDER`         | Mainnet block provider API endpoint (ex. Infura, Alchemy, ...)            |
+| `MAINNET_GNOSIS_SAFE`          | Mainnet Gnosis Safe address for contract owner                            |
+| `MAINNET_PROXY_ADDRESS`        | Mainnet Contract proxy address for upgrading the contract                 |
+| `ETHERSCAN_API_KEY`            | Etherscan account API key used for contract verification                  |
+| `DEFENDER_TEAM_API_KEY`        | Openzeppelin Upgrade defender key for upgrading the contract              |
+| `DEFENDER_TEAM_API_SECRET_KEY` | Openzeppelin Upgrade defender secret key for upgrading the contract       |
 
 ## Upgrading
 
