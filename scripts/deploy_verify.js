@@ -11,7 +11,7 @@ async function main() {
   const GraphcastRegistry = await ethers.getContractFactory("GraphcastRegistry");
 
   console.log('Deploying GraphcastRegistry proxy...');
-  const registry = await upgrades.deployProxy(GraphcastRegistry, [], { initializer: 'initialize', contract: "GraphcastRegistryProxy" });
+  const registry = await upgrades.deployProxy(GraphcastRegistry, [], { initializer: 'initialize', proxyContract: "GraphcastRegistryProxy" });
 
   console.log("Registry contract address:", registry.address);
   await registry.deployed();
@@ -33,7 +33,6 @@ async function main() {
     address: registry.address,
     constructorArguments: [],
   });
-
 }
 
 main().catch((error) => {

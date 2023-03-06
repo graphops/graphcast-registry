@@ -1,5 +1,6 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("@openzeppelin/hardhat-upgrades");
+require('@openzeppelin/hardhat-defender');
 require('dotenv').config({path:__dirname+'/.env'})
 
 /** @type import('hardhat/config').HardhatUserConfig */
@@ -20,5 +21,9 @@ module.exports = {
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
+  },
+  defender: {
+    apiKey: process.env.DEFENDER_TEAM_API_KEY,
+    apiSecret: process.env.DEFENDER_TEAM_API_SECRET_KEY,
   },
 };

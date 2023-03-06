@@ -1,5 +1,6 @@
 const { ethers, network, run } = require("hardhat");
-const GNOSIS_SAFE = process.env.GNOSIS_SAFE;
+const GNOSIS_SAFE = process.env.GOERLI_GNOSIS_SAFE;
+const PROXY_ADDRESS = process.env.GOERLI_PROXY_ADDRESS;
 
 async function main() {
   const [deployer] = await ethers.getSigners();
@@ -11,7 +12,7 @@ async function main() {
   const GraphcastRegistry = await ethers.getContractFactory("GraphcastRegistry");
 
   console.log('Deploying GraphcastRegistry proxy...');
-  const registry = await upgrades.deployProxy(GraphcastRegistry, [], { initializer: 'initialize', contract: "GraphcastRegistryProxy" });
+  const registry = await upgrades.deployProxy(GraphcastRegistry, [], { initializer: 'initialize', proxyContract: "GraphcastRegistryProxy", proxyAdmin: GNOSIS_SAFE });
 
   console.log("Registry contract address:", registry.address);
   await registry.deployed();
@@ -34,8 +35,14 @@ async function main() {
     constructorArguments: [],
   });
 
-  console.log(`Update Owner from ${owner} to ${GNOSIS_SAFE}`);
+  // Transfer ownership of Implementation contract and Proxy contract
+  console.log(`Set contract owner from ${owner} to Gnosis Safe ${GNOSIS_SAFE}`);
   await gr.transferOwnership(GNOSIS_SAFE);
+
+  console.log(
+    `Transferring ownership of Proxy Admin to Gnosis Safe: ${GNOSIS_SAFE}`
+  );
+  await upgrades.admin.transferProxyAdminOwnership(GNOSIS_SAFE);
 }
 
 main().catch((error) => {

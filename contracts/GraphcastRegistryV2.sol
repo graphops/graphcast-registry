@@ -24,10 +24,10 @@ contract Staking {
 /// @notice You can use this contract to register an address as a Graphcast ID for your Indexer Account.
 /// Graphcast ID will allow you to operate Graphcast radios with a Graph Account identity.
 /// @dev This contract utilizes Openzepplin Ownable and Transparent Upgradeable Proxy contracts
-contract GraphcastRegistryV2 is GraphcastRegistry{
+contract GraphcastRegistryV2 is GraphcastRegistry {
     /// @notice Track the Service Registry address
     /// @dev Initially nothing, owner can update with SetStaking 
-    address public staking_addr;
+    address public stakingAddr;
 
     /// @custom:oz-upgrades-unsafe-allow constructor
     constructor() {
@@ -46,7 +46,7 @@ contract GraphcastRegistryV2 is GraphcastRegistry{
      * @return Staking contract registered with Graph Proxy Controller
      */
     function staking() internal view returns (Staking) {
-        return Staking(staking_addr);
+        return Staking(stakingAddr);
     }
 
     /**
@@ -55,8 +55,8 @@ contract GraphcastRegistryV2 is GraphcastRegistry{
     event SetStaking(address indexed staking);
 
     function setStaking(address _addr) external virtual onlyOwner {
-        staking_addr = _addr;
-        emit SetStaking(staking_addr);
+        stakingAddr = _addr;
+        emit SetStaking(stakingAddr);
     }
 
     /**
@@ -75,10 +75,10 @@ contract GraphcastRegistryV2 is GraphcastRegistry{
         if (_graphcastID != address(0) && graphcastIDRegistered[_graphcastID])
             revert OccupiedGraphcastID(_graphcastID);
         // unset previous graphcastID
-        if (graphcastIDAuthorized[msg.sender] != address(0)){
-            graphcastIDRegistered[graphcastIDAuthorized[msg.sender]] = false;
+        if (graphcastIDAuthorized[_indexer] != address(0)){
+            graphcastIDRegistered[graphcastIDAuthorized[_indexer]] = false;
         }
-        graphcastIDAuthorized[msg.sender] = _graphcastID;
+        graphcastIDAuthorized[_indexer] = _graphcastID;
         graphcastIDRegistered[_graphcastID] = true;
         emit SetGraphcastID(_indexer, _graphcastID);
     }
