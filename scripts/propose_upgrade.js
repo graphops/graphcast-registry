@@ -4,7 +4,7 @@ const { createTransaction } = require("@gnosis.pm/safe-core-sdk");
 const { defender } = require("hardhat");
 
 // TODO Check this address is right before deploying.
-const PROXY_ADDRESS = process.env.GOERLI_PROXY_ADDRESS;
+const PROXY_ADDRESS = process.env.MAINNET_PROXY_ADDRESS;
 
 async function main() {
   console.log(PROXY_ADDRESS," original Registry(proxy) address")

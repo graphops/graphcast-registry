@@ -14,6 +14,10 @@ module.exports = {
       url: process.env.GOERLI_ETH_PROVIDER,
       accounts: [process.env.GOERLI_PRIVATE_KEY]
     },
+    "arbitrum-goerli": {
+      url: process.env.ARB_GOERLI_ETH_PROVIDER,
+      accounts: [process.env.ARB_GOERLI_PRIVATE_KEY]
+    },
     mainnet: {
       url: process.env.MAINNET_ETH_PROVIDER,
       accounts: [process.env.MAINNET_PRIVATE_KEY]
