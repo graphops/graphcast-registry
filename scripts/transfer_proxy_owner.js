@@ -1,4 +1,4 @@
-const gnosisSafe = process.env.MAINNET_GNOSIS_SAFE;
+const gnosisSafe = process.env.GOERLI_GNOSIS_SAFE;
 
 async function main () {  
   console.log('Transferring ownership of ProxyAdmin...');

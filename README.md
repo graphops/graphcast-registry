@@ -18,7 +18,7 @@ The contract is verified, upgradable, and owned by a Gnosis safe multisig. Any u
 
 ## Quickstart
 
-To deploy the contract, provide environmental variables as shown in `.env.example` (GOERLI_PRIVATE_KEY, GOERLI_ETH_PROVIDER, ETHERSCAN_API_KEY, GNOSIS_SAFE, PROXY_ADDRESS, MAINNET_ETH_PROVIDER, MAINNET_PRIVATE_KEY). 
+To deploy the contract, provide environmental variables as shown in `.env.example` for whichever network you want to deploy to ({NETWORK}_PRIVATE_KEY, {NETWORK}_ETH_PROVIDER, ETHERSCAN_API_KEY, {NETWORK}_GNOSIS_SAFE, PROXY_ADDRESS). 
 
 With Hardhat CLI:
 
@@ -26,20 +26,41 @@ With Hardhat CLI:
 - `npx hardhat compile` to compile the Registry contract.
 - `npx hardhat run scripts/deploy.js --network [localhost/goerli/mainnet]` to simply deploy the contract. 
 - `npx hardhat run scripts/upgrade.js --network [localhost/goerli/mainnet]` to upgrade the contract. 
-- `npx hardhat run scripts/deploy_verify_admin.js --network [localhost/goerli/mainnet]` to run the script that deploys, verifies, and update admin address of the contract. 
+- `npx hardhat run scripts/deploy_verify_admin.js --network [localhost/goerli/mainnet]` to run the script that deploys, verifies, and update admin address of the contract. Provide the Gnosis safe address as the proxy admin for secure upgrades.
+
+## Current addresses
+
+The contract proxy addresses are listed below, which should link to implementation and proxyAdmin addresses.
+
+| Network ID         | Network                           | Proxy Contract Address                                                               |
+| --------- | ------------------------------ | ------------------------------------------------------------------------- |
+| 1 | `Mainnet`          | `0x89f97698d6006f25570cd2e31737d3d22aedcbcf`             |
+| 5 | `Goerli`           | `0x26ebbA649FAa7b56FDB8DE9Ea17aF3504B76BFA0`                                                |
+| 42161 | `Arbitrum-one`           | ___                             |
+| 421613 | `Arbitrum-goerli`         | ___                  |
+
+
+Setting a graphcast id on the registry require validation through The Graph network contracts, listed below. 
+
+- Service Registry is used in the Registry subgraph to validate an indexer account on The Graph, as it checks if an Eth address is a registered indexer to the Graph network.
+- Staking contract validates the indexer authorization to an operator. The registry contract uses the staking contract `isOperator` function to allow either indexer address or an indexer operator to call setGraphcastID.
+
+| Network ID         | Network                           | Service Registry                            |Staking contract                            |
+| --------- | ------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| 1 | `Mainnet`          |    0xaD0C9DaCf1e515615b0581c8D7E295E296Ec26E6          | 0xF55041E37E12cD407ad00CE2910B8269B01263b9 |
+| 5 | `Goerli`           | 0x7CF8aD279E9F26b7DAD2Be452A74068536C8231F |    0x35e3Cb6B317690d662160d5d02A5b364578F62c9 | 
+| 42161 | `Arbitrum-one`           |      0x072884c745c0A23144753335776c99BE22588f8A                        | 0x00669A4CF01450B64E8A2A20E9b1FCB71E61eF03 |
+| 421613 | `Arbitrum-goerli`         |    0x07ECDD4278D83Cd2425cA86256634f666b659e53               | 0xcd549d0C43d915aEB21d3a331dEaB9B7aF186D26 |
+
 
 ## Configuring
 
 | Name                           | Description                                                               |
 | ------------------------------ | ------------------------------------------------------------------------- |
-| `GOERLI_PRIVATE_KEY`           | Goerli address private key                                                |
-| `GOERLI_ETH_PROVIDER`          | Goerli block provider API endpoint (ex. Infura, Alchemy, ...)             |
-| `GOERLI_GNOSIS_SAFE`           | Goerli Gnosis Safe address for contract owner                             |
-| `GOERLI_PROXY_ADDRESS`         | Goerli Contract proxy address for upgrading the contract                  |
-| `MAINNET_PRIVATE_KEY`          | Mainnet address private key                                               |
-| `MAINNET_ETH_PROVIDER`         | Mainnet block provider API endpoint (ex. Infura, Alchemy, ...)            |
-| `MAINNET_GNOSIS_SAFE`          | Mainnet Gnosis Safe address for contract owner                            |
-| `MAINNET_PROXY_ADDRESS`        | Mainnet Contract proxy address for upgrading the contract                 |
+| `{NETWORK}_PRIVATE_KEY`           | Eth Network address private key                                                |
+| `{NETWORK}_ETH_PROVIDER`          | Eth Network block provider API endpoint (ex. Infura, Alchemy, ...)             |
+| `{NETWORK}_GNOSIS_SAFE`           | Eth Network Gnosis Safe address for contract owner                             |
+| `{NETWORK}_PROXY_ADDRESS`         | Eth Network Contract proxy address for upgrading the contract                  |
 | `ETHERSCAN_API_KEY`            | Etherscan account API key used for contract verification                  |
 | `DEFENDER_TEAM_API_KEY`        | Openzeppelin Upgrade defender key for upgrading the contract              |
 | `DEFENDER_TEAM_API_SECRET_KEY` | Openzeppelin Upgrade defender secret key for upgrading the contract       |
