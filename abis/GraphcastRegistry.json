@@ -22,6 +22,17 @@
     "type": "error"
   },
   {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_indexer",
+        "type": "address"
+      }
+    ],
+    "name": "UnauthorizedCaller",
+    "type": "error"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {
@@ -70,6 +81,19 @@
       }
     ],
     "name": "SetGraphcastID",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "staking",
+        "type": "address"
+      }
+    ],
+    "name": "SetStaking",
     "type": "event"
   },
   {
@@ -148,6 +172,50 @@
     "name": "setGraphcastID",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_indexer",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_graphcastID",
+        "type": "address"
+      }
+    ],
+    "name": "setGraphcastIDFor",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_addr",
+        "type": "address"
+      }
+    ],
+    "name": "setStaking",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "stakingAddr",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {

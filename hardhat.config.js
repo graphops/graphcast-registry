@@ -25,6 +25,16 @@ module.exports = {
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
+    customChains: [
+      {
+        network: "arbitrum-goerli",
+        chainId: 421613,
+        urls: {
+          apiURL: "https://goerli.arbiscan.io/verifyContract?a=0x288316863E22ad578839D8E3B5ffD01d43B30b46",
+          browserURL: "https://goerli.arbiscan.io/"
+        }
+      }
+    ]
   },
   defender: {
     apiKey: process.env.DEFENDER_TEAM_API_KEY,

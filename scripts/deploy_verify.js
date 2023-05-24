@@ -1,5 +1,5 @@
 const { ethers, network, run } = require("hardhat");
-const GNOSIS_SAFE = process.env.GOERLI_GNOSIS_SAFE;
+// const GNOSIS_SAFE = process.env.GOERLI_GNOSIS_SAFE;
 
 async function main() {
   const [deployer] = await ethers.getSigners();
