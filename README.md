@@ -10,7 +10,7 @@ To see the full idea behind Graphcast, you can check out our [docs](https://docs
 
 ## Features
 
-Graphcast Registry contract allows an address to set GraphcastID by calling `setGraphcastIDFor(graphcastID_address)`. The relationship between an indexer address to its GraphcastID is limited to 1:1, and cannot be set to itself. This restriction provides consistency and security for the indexer identity to operate on Graphcast as one GraphcastID operating across radio applications. 
+Graphcast Registry contract allows an address to set GraphcastID by calling `setGraphcastID(indexer_address, graphcastID_address)` as either indexer or indexer operator, or calling `setGraphcastID(graphcastID_address)` as the indexer address. The relationship between an indexer address to its GraphcastID is limited to 1:1, and cannot be set to itself. This restriction provides consistency and security for the indexer identity to operate on Graphcast as one GraphcastID operating across radio applications. 
 
 The initial GraphcastID for all addresses are simply 0x0. Calling `setGraphcastIDFor` with a new address will overwrite the previous relationship, and can be unset completely by setting the address back to 0x0.
 
@@ -43,7 +43,7 @@ The contract proxy addresses are listed below, which should link to implementati
 Setting a graphcast id on the registry require validation through The Graph network contracts, listed below. 
 
 - Service Registry is used in the Registry subgraph to validate an indexer account on The Graph, as it checks if an Eth address is a registered indexer to the Graph network.
-- Staking contract validates the indexer authorization to an operator. The registry contract uses the staking contract `isOperator` function to allow either indexer address or an indexer operator to call setGraphcastID.
+- Staking contract validates the indexer authorization to an operator. The registry contract uses the staking contract `isOperator` function to allow either indexer address or an indexer operator to call setGraphcastIDFor.
 
 | Network ID         | Network                           | Service Registry                            |Staking contract                            |
 | --------- | ------------------------------ | ------------------------------------------ | ------------------------------------------ |
@@ -68,6 +68,8 @@ Setting a graphcast id on the registry require validation through The Graph netw
 ## Upgrading
 
 After writing the new contract version (`GraphcastRegistryV#`), update `upgrade.js` with the new version number, double check the proxy address, and run the script.
+
+Update the abis files from generated artifcats. 
 
 ## Contributing
 
