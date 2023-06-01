@@ -22,6 +22,10 @@ module.exports = {
       url: process.env.MAINNET_ETH_PROVIDER,
       accounts: [process.env.MAINNET_PRIVATE_KEY]
     },
+    "arbitrum-one": {
+      url: process.env.ARB_ONE_ETH_PROVIDER,
+      accounts: [process.env.ARB_ONE_PRIVATE_KEY]
+    },
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
@@ -35,6 +39,9 @@ module.exports = {
         }
       }
     ]
+  },
+  arbiscan: {
+    apiKey: process.env.ARBISCAN_API_KEY,
   },
   defender: {
     apiKey: process.env.DEFENDER_TEAM_API_KEY,
