@@ -42,6 +42,10 @@ contract GraphcastRegistry is Initializable, OwnableUpgradeable {
     /// @dev Initially nothing, owner can update with SetStaking 
     address public stakingAddr;
 
+    constructor() {
+        _disableInitializers();
+    }
+
     /**
      * @dev Check if the caller is authorized (either a staked indexer or operator of an indexer)
      */

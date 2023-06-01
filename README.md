@@ -36,8 +36,8 @@ The contract proxy addresses are listed below, which should link to implementati
 | --------- | ------------------------------ | ------------------------------------------------------------------------- |
 | 1 | `Mainnet`          | `0x89f97698d6006f25570cd2e31737d3d22aedcbcf`             |
 | 5 | `Goerli`           | `0x26ebbA649FAa7b56FDB8DE9Ea17aF3504B76BFA0`                                                |
-| 42161 | `Arbitrum-one`           | ___                             |
-| 421613 | `Arbitrum-goerli`         | ___                  |
+| 42161 | `Arbitrum-one`           | `0xfae79e8cb8fbac2408e5baf89262bd92b6ca464a`                             |
+| 421613 | `Arbitrum-goerli`         | `0x50c2d70a41ecefe4cc54a331457ea204ecf97292`                  |
 
 
 Setting a graphcast id on the registry require validation through The Graph network contracts, listed below. 
@@ -47,10 +47,10 @@ Setting a graphcast id on the registry require validation through The Graph netw
 
 | Network ID         | Network                           | Service Registry                            |Staking contract                            |
 | --------- | ------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| 1 | `Mainnet`          |    0xaD0C9DaCf1e515615b0581c8D7E295E296Ec26E6          | 0xF55041E37E12cD407ad00CE2910B8269B01263b9 |
-| 5 | `Goerli`           | 0x7CF8aD279E9F26b7DAD2Be452A74068536C8231F |    0x35e3Cb6B317690d662160d5d02A5b364578F62c9 | 
-| 42161 | `Arbitrum-one`           |      0x072884c745c0A23144753335776c99BE22588f8A                        | 0x00669A4CF01450B64E8A2A20E9b1FCB71E61eF03 |
-| 421613 | `Arbitrum-goerli`         |    0x07ECDD4278D83Cd2425cA86256634f666b659e53               | 0xcd549d0C43d915aEB21d3a331dEaB9B7aF186D26 |
+| 1 | `Mainnet`          |    `0xaD0C9DaCf1e515615b0581c8D7E295E296Ec26E6`          | `0xF55041E37E12cD407ad00CE2910B8269B01263b9` |
+| 5 | `Goerli`           | `0x7CF8aD279E9F26b7DAD2Be452A74068536C8231F` |    `0x35e3Cb6B317690d662160d5d02A5b364578F62c9` | 
+| 42161 | `Arbitrum-one`           |      `0x072884c745c0A23144753335776c99BE22588f8A`                        | `0x00669A4CF01450B64E8A2A20E9b1FCB71E61eF03` |
+| 421613 | `Arbitrum-goerli`         |    `0x07ECDD4278D83Cd2425cA86256634f666b659e53`               | `0xcd549d0C43d915aEB21d3a331dEaB9B7aF186D26` |
 
 
 ## Configuring
@@ -61,7 +61,7 @@ Setting a graphcast id on the registry require validation through The Graph netw
 | `{NETWORK}_ETH_PROVIDER`          | Eth Network block provider API endpoint (ex. Infura, Alchemy, ...)             |
 | `{NETWORK}_GNOSIS_SAFE`           | Eth Network Gnosis Safe address for contract owner                             |
 | `{NETWORK}_PROXY_ADDRESS`         | Eth Network Contract proxy address for upgrading the contract                  |
-| `ETHERSCAN_API_KEY`            | Etherscan account API key used for contract verification                  |
+| `ETHERSCAN_API_KEY`            | Etherscan (or Arbiscan) account API key used for contract verification                  |
 | `DEFENDER_TEAM_API_KEY`        | Openzeppelin Upgrade defender key for upgrading the contract              |
 | `DEFENDER_TEAM_API_SECRET_KEY` | Openzeppelin Upgrade defender secret key for upgrading the contract       |
 

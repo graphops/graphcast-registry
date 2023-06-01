@@ -1,6 +1,6 @@
 const { ethers, network, run } = require("hardhat");
-const GNOSIS_SAFE = process.env.GOERLI_GNOSIS_SAFE;
-const PROXY_ADDRESS = process.env.GOERLI_PROXY_ADDRESS;
+// const GNOSIS_SAFE = process.env.ARB_ONE_GNOSIS_SAFE;
+// const PROXY_ADDRESS = process.env.GOERLI_PROXY_ADDRESS;
 
 async function main() {
   const [deployer] = await ethers.getSigners();
