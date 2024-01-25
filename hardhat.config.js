@@ -6,7 +6,7 @@ require('dotenv').config({path:__dirname+'/.env'})
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.17",
-  defaultNetwork: "goerli",
+  defaultNetwork: "arbitrum-sepolia",
   networks: {
     hardhat: {
     },
@@ -17,6 +17,10 @@ module.exports = {
     "arbitrum-goerli": {
       url: process.env.ARB_GOERLI_ETH_PROVIDER,
       accounts: [process.env.ARB_GOERLI_PRIVATE_KEY]
+    },
+    "arbitrum-sepolia": {
+      url: process.env.ARB_SEPOLIA_ETH_PROVIDER,
+      accounts: [process.env.ARB_SEPOLIA_PRIVATE_KEY]
     },
     mainnet: {
       url: process.env.MAINNET_ETH_PROVIDER,
@@ -31,17 +35,27 @@ module.exports = {
     apiKey: process.env.ETHERSCAN_API_KEY,
     customChains: [
       {
-        network: "arbitrum-goerli",
-        chainId: 421613,
+        network: "arbitrum-sepolia",
+        chainId: 421614,
         urls: {
-          apiURL: "https://goerli.arbiscan.io/verifyContract?a=0x288316863E22ad578839D8E3B5ffD01d43B30b46",
-          browserURL: "https://goerli.arbiscan.io/"
+          apiURL: "https://sepolia.arbiscan.io/verifyContract?a=0xbfc972dbdaa102565c071a0ecf488c5165d48acd",
+          browserURL: "https://api-sepolia.arbiscan.io/api"
         }
       }
     ]
   },
   arbiscan: {
     apiKey: process.env.ARBISCAN_API_KEY,
+    customChains: [
+      {
+        network: "arbitrum-sepolia",
+        chainId: 421614,
+        urls: {
+          apiURL: "https://sepolia.arbiscan.io/verifyContract?a=0xbfc972dbdaa102565c071a0ecf488c5165d48acd",
+          browserURL: "https://api-sepolia.arbiscan.io/api"
+        }
+      }
+    ]
   },
   defender: {
     apiKey: process.env.DEFENDER_TEAM_API_KEY,
