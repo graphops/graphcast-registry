@@ -42,6 +42,7 @@ contract GraphcastRegistry is Initializable, OwnableUpgradeable {
     /// @dev Initially nothing, owner can update with SetStaking 
     address public stakingAddr;
 
+    /// @custom:oz-upgrades-unsafe-allow constructor
     constructor() {
         _disableInitializers();
     }
@@ -128,7 +129,7 @@ contract GraphcastRegistry is Initializable, OwnableUpgradeable {
      * @notice Initial contract deployment that sets the owner
      * @dev Default owner passed in is the deployer address
      */    
-    function initialize() external initializer {
+    function initialize() external onlyInitializing {
         __Ownable_init();
     }
 }

@@ -38,6 +38,7 @@ The contract proxy addresses are listed below, which should link to implementati
 | 5 | `Goerli`           | `0x26ebbA649FAa7b56FDB8DE9Ea17aF3504B76BFA0`                                                |
 | 42161 | `Arbitrum-one`           | `0xfae79e8cb8fbac2408e5baf89262bd92b6ca464a`                             |
 | 421613 | `Arbitrum-goerli`         | `0x50c2d70a41ecefe4cc54a331457ea204ecf97292`                  |
+| 421614 | `Arbitrum-sepolia`         | `0x17c3a072E5b1B2c260C29D289ee2E7372b8f7C69`                  |
 
 
 Setting a graphcast id on the registry require validation through The Graph network contracts, listed below. 
